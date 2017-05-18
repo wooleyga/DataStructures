@@ -11,6 +11,7 @@ public:
 	void add(int x);
 	bool remove(int x);
 	bool contains(int x);
+	int get(int index);
 	int getSize();
 	bool isEmpty();
 	friend std::ostream& operator<< (std::ostream& stream, const LinkedList& list);
