@@ -16,7 +16,7 @@ LinkedStack::~LinkedStack()
 
 void LinkedStack::push(int x)
 {
-	if (top == NULL)
+	if (isEmpty())
 		top = new Node(x);
 	else {
 		Node* newTop = new Node(x);
@@ -28,7 +28,7 @@ void LinkedStack::push(int x)
 
 int LinkedStack::pop()
 {
-	if (size == 0)
+	if (isEmpty())
 		throw new EmptyStackException;
 
 	int poppedVal = top->val;
@@ -40,7 +40,7 @@ int LinkedStack::pop()
 
 int LinkedStack::peek()
 {
-	if (size == 0)
+	if (isEmpty())
 		throw new EmptyStackException;
 
 	return top->val;
