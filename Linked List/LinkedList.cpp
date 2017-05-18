@@ -1,12 +1,12 @@
 #include "LinkedList.hpp"
 
-LinkedList::LinkedList() : head(NULL), size(0){}
+LinkedList::LinkedList() : head(NULL), size(0) {}
 
 LinkedList::~LinkedList()
 {
 	Node* current;
 	current = head;
-	while (current != NULL) 
+	while (current != NULL)
 	{
 		Node* next = current->next;
 		delete current;
@@ -18,7 +18,7 @@ void LinkedList::add(int x)
 {
 	if (head == NULL)
 		head = new Node(x);
-	else 
+	else
 	{
 		Node* current;
 		current = head;
@@ -26,7 +26,6 @@ void LinkedList::add(int x)
 			current = current->next;
 		current->next = new Node(x);
 	}
-
 	++size;
 }
 
@@ -34,9 +33,9 @@ bool LinkedList::remove(int x)
 {
 	Node* current;
 	current = head;
-	while (current->next != NULL) 
+	while (current->next != NULL)
 	{
-		if (current->val == x) 
+		if (current->val == x)
 		{
 			current->val = current->next->val;
 			current->next = current->next->next;
@@ -46,7 +45,7 @@ bool LinkedList::remove(int x)
 		current = current->next;
 	}
 
-	if (current->val == x) 
+	if (current->val == x)
 	{
 		current = NULL;
 		--size;
@@ -75,6 +74,11 @@ bool LinkedList::contains(int x)
 int LinkedList::getSize()
 {
 	return size;
+}
+
+bool LinkedList::isEmpty()
+{
+	return size == 0;
 }
 
 std::ostream& operator<<(std::ostream& os, const LinkedList & list)
