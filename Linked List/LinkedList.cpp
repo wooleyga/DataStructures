@@ -71,6 +71,19 @@ bool LinkedList::contains(int x)
 	return false;
 }
 
+int LinkedList::get(int index)
+{
+	if (index < 0 || index >= size)
+		throw "Index out of bounds.";
+
+	Node* current;
+	current = head;
+	for (int i = 0; i < index; ++i) {
+		current = current->next;
+	}
+	return current->val;
+}
+
 int LinkedList::getSize()
 {
 	return size;
